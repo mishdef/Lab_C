@@ -20,8 +20,16 @@ namespace Lab.Class
             if (!(infoMessage == null)) infoMessage.Invoke(message);
             else throw new Exception("Please configure message handlers.");
         }
-        static public void SendWarningMessage(string message) => WarningMessage?.Invoke(message);
-        static public void SendErrorMessage(string message) => errorMessage?.Invoke(message);
+        static public void SendWarningMessage(string message)
+        {
+            if (!(WarningMessage == null)) WarningMessage.Invoke(message);
+            else throw new Exception("Please configure message handlers.");
+        }
+        static public void SendErrorMessage(string message)
+        {
+            if (!(errorMessage == null)) errorMessage.Invoke(message);
+            else throw new Exception("Please configure message handlers.");
+        }
 
         static public void SetInfoMessage(InfoMessage message) => infoMessage = message;
         static public void SetWarningMessage(Action<string> message) => WarningMessage = message;
