@@ -18,6 +18,7 @@ namespace Lab
             MessagesHandler.SetErrorMessage(ErrorMessage);
 
             ProjectBoard.WarningToMuchTasksInToDoEvent += ShowwarningMessageBox;
+            ProjectBoard.WarningToMuchToMuchTasksInToDoEvent += ShowwarningMessageBox;
 
             bool exit = false;
             bool changeUser = false;

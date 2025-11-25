@@ -35,15 +35,15 @@ namespace Lab.Class
             {
                 Tasks.Add(new Task(taskName));
 
-                if (Tasks.Count > 5)
-                {
-                    WarningToMuchTasksInToDoEvent?.Invoke("You have to much tasks in to do, its recomended to STOP!!!! :(");
-                }
-
                 if (Tasks.Count > 10)
                 {
                     WarningToMuchToMuchTasksInToDoEvent?.Invoke("STOP!!!! STOP!!!! STOP!!!! :(");
                 }
+                else if (Tasks.Count > 5)
+                {
+                    WarningToMuchTasksInToDoEvent?.Invoke("You have to much tasks in to do, its recomended to STOP!!!! :(");
+                }
+
 
                 return Tasks.Last();
             }
