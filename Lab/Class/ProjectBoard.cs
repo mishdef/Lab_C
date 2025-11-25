@@ -15,6 +15,7 @@ namespace Lab.Class
         public delegate void WarningToMuchTasksInToDo(string message);
 
         static public event WarningToMuchTasksInToDo? WarningToMuchTasksInToDoEvent;
+        static public event WarningToMuchTasksInToDo? WarningToMuchToMuchTasksInToDoEvent;
 
         public string Name { get; set; }
         public List<Task> Tasks { get; } = new List<Task>();
@@ -37,6 +38,11 @@ namespace Lab.Class
                 if (Tasks.Count > 5)
                 {
                     WarningToMuchTasksInToDoEvent?.Invoke("You have to much tasks in to do, its recomended to STOP!!!! :(");
+                }
+
+                if (Tasks.Count > 10)
+                {
+                    WarningToMuchToMuchTasksInToDoEvent?.Invoke("STOP!!!! STOP!!!! STOP!!!! :(");
                 }
 
                 return Tasks.Last();
